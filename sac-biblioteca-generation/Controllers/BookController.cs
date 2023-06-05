@@ -13,7 +13,7 @@ namespace sac_biblioteca_generation.Controllers
         {
             using(BookShopContext db = new BookShopContext())
             {
-                List<Book> books = db.Books.Include(p => p.Genre).ToList();
+                List<Book> books = db.Books.Include(g => g.Genre).Include(a => a.Authors).ToList();
                 //List<Book> books = db.Books.ToList();
                 return View(books);
             }
