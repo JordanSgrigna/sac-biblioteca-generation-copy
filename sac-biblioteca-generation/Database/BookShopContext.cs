@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using sac_biblioteca_generation.Models;
 
 namespace sac_biblioteca_generation.Database
 {
-    public class BookShopContext : DbContext
+    public class BookShopContext : IdentityDbContext<IdentityUser>
     {       
         public DbSet<Book> Books { get; set; }
         public DbSet<BookGenre> Genre { get; set; }

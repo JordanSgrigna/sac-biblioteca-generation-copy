@@ -26,7 +26,7 @@ namespace sac_biblioteca_generation.Controllers
         {
             using (BookShopContext db = new BookShopContext())
             {
-                Book? book = db.Books.Where(book => book.Id == id).Include(p => p.Genre.Nome).Include(a => a.Authors).FirstOrDefault(); 
+                Book? book = db.Books.Where(book => book.Id == id).Include(p => p.Genre).Include(a => a.Authors).FirstOrDefault(); 
                 if(book != null) 
                 {
                     return View("BookDetails",  book);

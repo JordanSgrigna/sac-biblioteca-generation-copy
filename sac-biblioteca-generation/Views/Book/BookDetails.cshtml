@@ -1,41 +1,39 @@
-﻿@model List<Book>
+﻿@model Book
 
-@foreach (Book books in Model)
-{
-    <div class="col-6">
+<div class="col-6">
 
-        @if (!books.Disponibilità)
-        {
-            <div class="card shadow-sm" height="300">
-                <img class="card-img-top" src="@books.UrlImmagine" alt="@books.Titolo"></img>
-                <div class="card-body">
-                    <p class="card-text">@books.Descrizione</p>
-                    <p>@books.Genre.Nome</p>
-                    <p class="text-danger">NON DISPONIBILE</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary" disabled>Prenota</button>
-                        </div>
-                    </div>
-                </div>
+
+    <div class="card shadow-sm" height="300">
+        <img class="card-img-top" src="@Model.UrlImmagine" alt="@Model.Titolo"></img>
+        <div class="card-body">
+            <p>@Model.Titolo</p>
+            <p>@Model.Authors.Nome @Model.Authors.Cognome</p>
+            <p class="small">@Model.Genre.Nome</p>
+            <p class="card-text">@Model.Descrizione</p>
+            @if (Model.Disponibilità)
+            {
+                <p class="text-success">DISPONIBILE</p>
+            }
+            else
+            {
+                <p class="text-danger">NON DISPONIBILE</p>
+            }
+            <div class="d-flex justify-content-between align-items-center">
+                <p class="mt-2">PRENOTA</p>
+
+                @if (Model.VersioneCartaceaDisponibile != null && (bool)Model.VersioneCartaceaDisponibile)
+                {
+                    <button type="button" class="btn btn-success rounded-0">Ebook</button>
+                    <button type="button" class="btn btn-warning rounded-0">Cartaceo</button>
+                }
+                else
+                {
+                    <button type="button" class="btn btn-success rounded-0">Ebook</button>
+                }
             </div>
-        }
-        else
-        {
-            <div class="card shadow-sm" height="300">
-                <img class="card-img-top" src="@books.UrlImmagine" alt="@books.Titolo"></img>
-                <div class="card-body">
-                    <p class="card-text">@books.Descrizione</p>
-                    <p class="text-success">DISPONIBILE</p>
-                    <p>@books.Genre.Nome</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Prenota</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        }
-
+        </div>
     </div>
-}
+
+
+</div>
+
