@@ -1,4 +1,11 @@
 ﻿@model List<Book>
 
-<h3>Benvenuto in libreria!</h3>
-
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold text-body-emphasis">Benvenuto in Libreria!</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">Scegli il libro che preferisci per rilassarti, studiare qualcosa di nuovo o ampliare le tue conoscenze! Ricorda che per i libri cartacei il tempo di prestito è di massimo un mese.</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a href="@Url.Action("BookDetails", "Book")" type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</a>
+        </div>
+    </div>
+</div>
