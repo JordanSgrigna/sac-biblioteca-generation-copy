@@ -19,39 +19,26 @@
                 {
                     <div class="col-6">
 
-                        @if(!books.Disponibilità)
-                        {
                             <div class="card shadow-sm" height="300">
                                 <img class="card-img-top" src="@books.UrlImmagine" alt="@books.Titolo"></img>
                                 <div class="card-body">
                                     <p class="card-text">@books.Descrizione</p>
                                     <p>@books.Genre.Nome</p>
-                                    <p class="text-danger">NON DISPONIBILE</p>
-                                    <div class="d-flex justify-content-between align-items-center">
+                                    @if (books.Disponibilità)
+                                    {
+                                        <p class="text-success">DISPONIBILE</p>
+                                    }
+                                    else
+                                    {
+                                        <p class="text-danger">NON DISPONIBILE</p>                               
+                                    }
+                                <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-sm btn-outline-secondary" disabled>Prenota</button>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        }
-                        else
-                        {
-                            <div class="card shadow-sm" height="300">
-                                <img class="card-img-top" src="@books.UrlImmagine" alt="@books.Titolo"></img>
-                                <div class="card-body">
-                                    <p class="card-text">@books.Descrizione</p>
-                                    <p class="text-success">DISPONIBILE</p>
-                                    <p>@books.Genre.Nome</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">Prenota</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        }
-                    
+                            </div>                    
                     </div>
                 }
             

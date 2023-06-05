@@ -15,6 +15,7 @@ namespace sac_biblioteca_generation.Models
         [Required(ErrorMessage = "Il campo è obbligatorio")]
         public string Descrizione { get; set; }
 
+        public bool? VersioneCartaceaDisponibile { get; set; }
 
         public DateTime? Prestito { get; set; }
 
@@ -36,11 +37,12 @@ namespace sac_biblioteca_generation.Models
 
         }
 
-        public Book(string titolo, string descrizione, string urlImmagine)
+        public Book(string titolo, string descrizione, string urlImmagine, bool versioneCartaceaDisponibile)
         {
             Titolo = titolo;
             Descrizione = descrizione;
             UrlImmagine = urlImmagine;
+            VersioneCartaceaDisponibile = versioneCartaceaDisponibile;
         }
     }
 }
