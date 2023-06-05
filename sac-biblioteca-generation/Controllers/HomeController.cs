@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using sac_biblioteca_generation.Database;
 using sac_biblioteca_generation.Models;
 using System.Diagnostics;
 
@@ -15,7 +16,12 @@ namespace sac_biblioteca_generation.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            using (BookShopContext db = new BookShopContext())
+            {
+
+                return View();
+            }
+
         }
 
         public IActionResult Privacy()
