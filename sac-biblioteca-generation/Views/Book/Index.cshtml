@@ -22,7 +22,9 @@
                             <div class="card shadow-sm" height="300">
                                 <img class="card-img-top" src="@books.UrlImmagine" alt="@books.Titolo"></img>
                                 <div class="card-body">
-                                    <p class="card-text">@books.Descrizione</p>
+                                    <p class="card-text">@books.Titolo</p>
+                                    <p>@books.Authors</p>
+                                    <p>@books.Descrizione</p>
                                     <p>@books.Genre.Nome</p>
 
                                     @if (books.Disponibilità)
@@ -33,7 +35,9 @@
                                     {
                                         <p class="text-danger">NON DISPONIBILE</p>                               
                                     }
+
                                     <p class="mt-2">PRENOTA</p>
+
                                     @if (books.VersioneCartaceaDisponibile != null && (bool)books.VersioneCartaceaDisponibile)
                                     {
                                         <button type="button" class="btn btn-success rounded-0">Ebook</button>
