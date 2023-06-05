@@ -20,7 +20,7 @@ namespace sac_biblioteca_generation.Controllers
             using (BookShopContext db = new BookShopContext())
             {
                 List<Book> topThreeBooks = db.Books.Take(3).ToList();
-                return View();
+                return View(topThreeBooks);
             }
 
         }
